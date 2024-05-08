@@ -1,10 +1,11 @@
 services:
   stirling-pdf:
-    image: frooodle/s-pdf:latest
+    build: .  # Indique à Docker Compose de construire l'image à partir du Dockerfile dans le répertoire courant
     ports:
       - '8080:8080'
     volumes:
-      - ./trainingData:/usr/share/tessdata # Required for extra OCR languages
+      - ./configs:/configs
+      - ./trainingData:/usr/share/tessdata
     environment:
       - DOCKER_ENABLE_SECURITY=true
       - SECURITY_ENABLE_LOGIN=true
