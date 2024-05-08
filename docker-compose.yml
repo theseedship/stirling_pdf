@@ -1,17 +1,20 @@
-version: '3.3'
 services:
   stirling-pdf:
     image: frooodle/s-pdf:latest
     ports:
       - '8080:8080'
     volumes:
-      - ./trainingData:/usr/share/tessdata #Required for extra OCR languages
-      # - /location/of/extraConfigs:/configs
-#      - /location/of/customFiles:/customFiles/
-#      - /location/of/logs:/logs/
+      - ./trainingData:/usr/share/tessdata # Required for extra OCR languages
     environment:
-      - DOCKER_ENABLE_SECURITY=false
+      - DOCKER_ENABLE_SECURITY=true
+      - SECURITY_ENABLE_LOGIN=true
+      - SECURITY_INITIALLOGIN_USERNAME=admin
+      - SECURITY_INITIALLOGIN_PASSWORD=stirling
     networks:
       default:
         aliases:
           - stirling-pdf
+
+networks:
+  default:
+    # Additional network configuration can go here (if any)

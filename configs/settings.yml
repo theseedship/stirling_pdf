@@ -1,0 +1,9 @@
+security:
+  enableLogin: true # Enable login
+system:
+  defaultLocale: 'en-US'
+  googlevisibility: false
+  customStaticFilePath: '/customFiles/static/'
+  showUpdate: true
+  showUpdateOnlyAdmin: false
+  customHTMLFiles: false
