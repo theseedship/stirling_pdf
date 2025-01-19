@@ -1,27 +1,6 @@
-services:
-  stirling-pdf:
-    build: .  # Indique à Docker Compose de construire l'image à partir du Dockerfile dans le répertoire courant
-    ports:
-      - '8080:8080'
-    volumes:
-      - ./configs:/configs
-      - ./trainingData:/usr/share/tessdata
-    environment:
-      - DOCKER_ENABLE_SECURITY=true
-      - SECURITY_ENABLE_LOGIN=true
-      - SECURITY_INITIALLOGIN_USERNAME=admin
-      - SECURITY_INITIALLOGIN_PASSWORD=stirling
-    networks:
-      default:
-        aliases:
-          - stirling-pdf
-
-networks:
-  default:
-    # Additional network configuration can go here (if any)
 # services:
 #   stirling-pdf:
-#     build: .
+#     build: .  # Indique à Docker Compose de construire l'image à partir du Dockerfile dans le répertoire courant
 #     ports:
 #       - '8080:8080'
 #     volumes:
@@ -32,8 +11,6 @@ networks:
 #       - SECURITY_ENABLE_LOGIN=true
 #       - SECURITY_INITIALLOGIN_USERNAME=admin
 #       - SECURITY_INITIALLOGIN_PASSWORD=stirling
-#       - HOST='::'
-#       - PORT=8080
 #     networks:
 #       default:
 #         aliases:
@@ -41,5 +18,27 @@ networks:
 
 # networks:
 #   default:
-#     enable_ipv6: true
-#     driver: bridge
+#     # Additional network configuration can go here (if any)
+services:
+  stirling-pdf:
+    build: .
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./configs:/configs
+      - ./trainingData:/usr/share/tessdata
+    environment:
+      - DOCKER_ENABLE_SECURITY=true
+      - SECURITY_ENABLE_LOGIN=true
+      - SECURITY_INITIALLOGIN_USERNAME=admin
+      - SECURITY_INITIALLOGIN_PASSWORD=stirling
+      - BIND_ADDRESS='::'
+      - SERVER_PORT=8080
+    networks:
+      default:
+        aliases:
+          - stirling-pdf
+
+networks:
+  default:
+    driver: bridge
