@@ -1,6 +1,6 @@
 services:
   stirling-pdf:
-    build: .  # Indique à Docker Compose de construire l'image à partir du Dockerfile dans le répertoire courant
+    build: .
     ports:
       - '8080:8080'
     volumes:
@@ -11,6 +11,8 @@ services:
       - SECURITY_ENABLE_LOGIN=true
       - SECURITY_INITIALLOGIN_USERNAME=admin
       - SECURITY_INITIALLOGIN_PASSWORD=stirling
+      - HOST='::'
+      - PORT=8080
     networks:
       default:
         aliases:
@@ -18,4 +20,5 @@ services:
 
 networks:
   default:
-    # Additional network configuration can go here (if any)
+    enable_ipv6: true
+    driver: bridge
