@@ -1,4 +1,4 @@
-# Utiliser l'image de base
+# Stirling-PDF v2.1.4 - testing RAM usage
 FROM frooodle/s-pdf:2.1.4
 
 # Copier les fichiers de configuration et autres fichiers nécessaires
