@@ -1,5 +1,5 @@
 # Stirling-PDF v2.1.4 - testing RAM usage
-FROM frooodle/s-pdf:2.1.2
+FROM frooodle/s-pdf:1.6.0
 
 # Copier les fichiers de configuration et autres fichiers nécessaires
 COPY ./configs /configs
