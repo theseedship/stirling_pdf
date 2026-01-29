@@ -1,5 +1,5 @@
 # Utiliser l'image de base
-FROM frooodle/s-pdf:2.1.5
+FROM frooodle/s-pdf:2.1.4
 
 # Copier les fichiers de configuration et autres fichiers nécessaires
 COPY ./configs /configs
@@ -9,7 +9,8 @@ COPY ./trainingData /usr/share/tessdata
 ENV DOCKER_ENABLE_SECURITY=true \
     SECURITY_ENABLE_LOGIN=true \
     SECURITY_INITIALLOGIN_USERNAME=admin \
-    SECURITY_INITIALLOGIN_PASSWORD=stirling
+    SECURITY_INITIALLOGIN_PASSWORD=stirling \
+    JAVA_TOOL_OPTIONS="-Xms128m -Xmx6144m -XX:+UseG1GC -XX:+UseStringDeduplication"
 
 # Exposer le port sur lequel l'application doit être accessible
 EXPOSE 8080
