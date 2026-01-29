@@ -11,7 +11,7 @@ ENV DOCKER_ENABLE_SECURITY=true \
     SECURITY_INITIALLOGIN_USERNAME=admin \
     SECURITY_INITIALLOGIN_PASSWORD=stirling \
     # Limit JVM heap to 1GB max (default uses 75% of available RAM)
-    JAVA_TOOL_OPTIONS="-Xms256m -Xmx1024m"
+    JAVA_TOOL_OPTIONS="-Xms128m -Xmx1024m -XX:+UseG1GC -XX:+UseStringDeduplication"
 
 # Exposer le port sur lequel l'application doit être accessible
 EXPOSE 8080
