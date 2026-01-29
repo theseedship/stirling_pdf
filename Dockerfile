@@ -1,5 +1,5 @@
 # Utiliser l'image de base
-FROM frooodle/s-pdf:latest
+FROM frooodle/s-pdf:2.1.5
 
 # Copier les fichiers de configuration et autres fichiers nécessaires
 COPY ./configs /configs
