@@ -14,3 +14,4 @@ ENV DOCKER_ENABLE_SECURITY=true \
 
 # Exposer le port sur lequel l'application doit être accessible
 EXPOSE 8080
+
