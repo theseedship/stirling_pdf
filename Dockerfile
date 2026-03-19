@@ -1,12 +1,13 @@
 # Stirling PDF — API-only PDF processing for Deposium pipeline
 #
-# v1.6.0 pinned: v2.2.0+ had RAM explosion issues.
+# v1.6.0-fat pinned: v2.2.0+ had RAM explosion issues.
+# s-pdf = lite (no login/accounts). s-pdf-fat = includes Spring Security.
 # Check for updates: https://github.com/Stirling-Tools/Stirling-PDF/releases
 #
 # Benchmark (2026-03-04, PDF 1.2MB scientific paper):
 #   20x concurrent pdf-to-text: 2.3s wall, 30% RAM on 3GB/2CPU
 #   0 errors, 0 OOM — scales linearly with CPU for pdf-to-text
-FROM frooodle/s-pdf:1.6.0
+FROM frooodle/s-pdf:1.6.0-fat
 
 COPY ./configs /configs
 COPY ./trainingData /usr/share/tessdata
